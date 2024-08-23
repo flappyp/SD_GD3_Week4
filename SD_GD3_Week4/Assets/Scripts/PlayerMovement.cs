@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnim;
 
     public GameManager gameManager;
-    public ParticleSystem dirtParticle;
+    
     private bool isDead;
     public AudioClip deathSound;
     public AudioClip jumpingSound;
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Game Over!");
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
-            dirtParticle.Stop();
+            
             playerAudio.PlayOneShot(deathSound, 1.0f);
             playerAudio.PlayOneShot(TryAgainSound, 1.0f);
         }
@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.transform.tag == "Ground")
         {
             isGrounded = false;
-            dirtParticle.Stop();
+            
         }
     }
 }
